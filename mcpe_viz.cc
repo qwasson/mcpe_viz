@@ -1386,6 +1386,12 @@ namespace mcpe_viz {
 	fprintf(stderr,"Generate Biome Image for Overworld\n");
 	chunkList[kWorldIdOverworld].generateImage(std::string(control.fnOutputBase + ".overworld.grass.png"), kImageModeGrass);
       }
+      if ( control.doHeightImageFlag ) {
+        fprintf(stderr," Generate Height Image for Overworld\n");
+        chunkList[kWorldIdOverworld].generateImage(std::string(control.fOutputBase + ".Overworld.height.png"), kImageModeHeight);
+      }
+
+
 
       // reset
       for (int i=0; i < 256; i++) {
