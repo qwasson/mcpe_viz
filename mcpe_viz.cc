@@ -92,6 +92,7 @@ namespace mcpe_viz {
       bool doGridFlag;
       bool doBiomeImageFlag;
       bool doGrassImageFlag;
+      bool doHeightImageFlag;
       bool shortRunFlag;
       bool verboseFlag;
       bool quietFlag;
@@ -123,6 +124,7 @@ namespace mcpe_viz {
 	doGridFlag = false;
 	doBiomeImageFlag = false;
 	doGrassImageFlag = false;
+	doHeightImageFlag = false;
 	shortRunFlag = false;
 	verboseFlag = false;
 	quietFlag = false;
@@ -174,7 +176,8 @@ namespace mcpe_viz {
     enum {
       kImageModeTerrain = 0,
       kImageModeBiome = 1,
-      kImageModeGrass = 2
+      kImageModeGrass = 2,
+      kImageModeHeight = 3
     };
     
     int histoChunkType[kWorldIdCount][256];
@@ -540,6 +543,11 @@ namespace mcpe_viz {
 		int32_t grassColor = (*it)->grassAndBiome[cx][cz] >> 8;
 		color = htobe32(grassColor);
 	      }
+	      else if(imageMode == kImageModeHeight) {
+                // get height 0-127, double it for better range (grayscale) 
+                int height = 2 * (*it)->topBlockY[cz][cx];
+              	color = htobe32((height * 256 * 256) + (height * 256) + height);
+              }
 	      else {
 		// regular image
 		int blockid = (*it)->blocks[cz][cx];
