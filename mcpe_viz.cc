@@ -1957,6 +1957,7 @@ namespace mcpe_viz {
     
 	{"biome", no_argument, NULL, 'B'},
 	{"grass", no_argument, NULL, 'g'},
+        {"height", no_argument, NULL, 'Y'},
     
 	{"movie", no_argument, NULL, 'M'},
 	{"movie-nether", no_argument, NULL, 'N'},
@@ -2008,6 +2009,9 @@ namespace mcpe_viz {
 	case 'g':
 	  control.doGrassImageFlag = true;
 	  break;
+        case 'Y':
+          control.doHeightImageFlag = true;
+          break;
       
 	case '*':
 	  // movie dimensions
