@@ -1388,7 +1388,7 @@ namespace mcpe_viz {
       }
       if ( control.doHeightImageFlag ) {
         fprintf(stderr," Generate Height Image for Overworld\n");
-        chunkList[kWorldIdOverworld].generateImage(std::string(control.fOutputBase + ".Overworld.height.png"), kImageModeHeight);
+        chunkList[kWorldIdOverworld].generateImage(std::string(control.fnOutputBase + ".Overworld.height.png"), kImageModeHeight);
       }
 
 
