@@ -1413,6 +1413,10 @@ namespace mcpe_viz {
 	fprintf(stderr,"Generate Grass Image for Nether\n");
 	chunkList[kWorldIdNether].generateImage(std::string(control.fnOutputBase + ".nether.grass.png"), kImageModeGrass);
       }
+      if ( control.doHeightImageFlag ) {
+	fprintf(stderr,"Generate Height Image for Nether\n");
+	chunkList[kWorldIdNether].generateImage(std::string(control.fnOutputBase + ".nether.height.png"), kImageModeHeight);
+      }
 
       // todo - could do a special nether output with all pixels 8x8 (could help w/ portal stuff)
       
